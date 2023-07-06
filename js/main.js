@@ -1,2 +1,16 @@
-var user = prompt("Enter user name");
-alert( "Hello, " + user +"!" + " How are you?");
+let champ = prompt("Введіть улюблену лігу:");
+let team = prompt("Введіть улюблену команду:");
+let player = prompt("Введіть улюблену гравця:");
+
+let result = champ + " " + team + " " + player;
+
+alert(result);
+
+{
+    let name = prompt("Введіть вое ім'я:");
+    let age = prompt("Введіть свій вік:");
+
+    let result = 'Вітаю: ' + name + '!\nВаш вік: ' + age;
+
+    alert(result)
+}
