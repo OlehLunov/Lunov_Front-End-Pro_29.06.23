@@ -6,11 +6,24 @@ let result = champ + " " + team + " " + player;
 
 alert(result);
 
+
 {
     let name = prompt("Введіть вое ім'я:");
     let age = prompt("Введіть свій вік:");
 
     let result = 'Вітаю: ' + name + '!\nВаш вік: ' + age;
 
-    alert(result)
+    alert(result);
+}
+
+
+{
+    let name = prompt("Введіть вое ім'я:");
+    let age = prompt("Введіть свій вік:");
+
+    let result = `
+    Вітаю ${name}!
+    Ваш вік ${age}.
+    `
+    alert(result);
 }
