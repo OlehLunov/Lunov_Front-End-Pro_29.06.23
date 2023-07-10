@@ -1,5 +1,7 @@
 {
-    let time = prompt("Введіть кількість годин:");
-    let seconds = time*3600 + " секунд";
-    alert(seconds);
+    let hours = prompt("Введіть кількість годин:");
+
+    let seconds = hours * 3600;
+
+    alert("У " + hours + " годинах є " + seconds + " секунд.");
 }
