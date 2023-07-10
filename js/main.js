@@ -8,7 +8,7 @@ alert(result);
 
 
 {
-    let name = prompt("Введіть вое ім'я:");
+    let name = prompt("Введіть cвоє ім'я:");
     let age = prompt("Введіть свій вік:");
 
     let result = 'Вітаю: ' + name + '!\nВаш вік: ' + age;
@@ -18,7 +18,7 @@ alert(result);
 
 
 {
-    let name = prompt("Введіть вое ім'я:");
+    let name = prompt("Введіть cвоє ім'я:");
     let age = prompt("Введіть свій вік:");
 
     let result = `
