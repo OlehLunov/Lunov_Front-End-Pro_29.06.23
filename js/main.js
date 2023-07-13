@@ -1,6 +1,7 @@
+let first = +prompt("Введіть перше число");
+let second = +prompt("Введіть друге число");
+let third = + prompt("Введіть трете число");
 
-    let hours = +prompt("Введіть кількість годин:");
+let result = (first+second+third)/3;
 
-    let seconds = hours * 3600;
-
-    alert(`У ${hours} годинах - ${seconds} секунд.`);
+alert (`Середне значення заданих трьох чисел дорівнює - ${result}`);
