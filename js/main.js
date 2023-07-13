@@ -1,7 +1,22 @@
-let first = +prompt("Введіть перше число");
+let operation = prompt("Оберіть дію (+, -, *, /)");
+
+let first = +prompt("Введіть перше число:");
 let second = +prompt("Введіть друге число");
-let third = +prompt("Введіть трете число");
 
-let result = (first+second+third)/3;
+let result;
 
-alert (`Середне значення заданих трьох чисел дорівнює - ${result}`);
+switch (operation) {
+    case "+" : result = first + second;
+    break;
+    case "-": result = first - second;
+    break;
+    case "*": result = first*second;
+    break;
+    case "/": result = first/second;
+    break;
+    default:
+        result = 'Щось пішло не так';
+}
+
+alert(`${first}  ${operation}  ${second} = ${result} `)
+
