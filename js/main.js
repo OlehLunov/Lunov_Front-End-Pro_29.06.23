@@ -1,21 +1,15 @@
-let operation = prompt("Оберіть дію (+, -, *, /)");
+let numOrStr = prompt('input number or string');
+console.log(numOrStr);
 
-let first = +prompt("Введіть перше число:");
-let second = +prompt("Введіть друге число");
-
-let result;
-
-switch (operation) {
-    case "+" : result = first + second;
+switch (true) {
+    case numOrStr === null:
+        console.log('ви скасували');
     break;
-    case "-": result = first - second;
+    case numOrStr.trim() === '':
+        console.log('Empty String');
     break;
-    case "*": result = first*second;
+    case isNaN( +numOrStr ):
+        console.log(' number is Ba_NaN');
     break;
-    case "/": result = first/second;
-    break;
-    default: result = 'Щось пішло не так';
+    default: console.log('OK!');
 }
-
-alert(`${first}  ${operation}  ${second} = ${result} `);
-
