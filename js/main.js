@@ -14,9 +14,8 @@ switch (operation) {
     break;
     case "/": result = first/second;
     break;
-    default:
-        result = 'Щось пішло не так';
+    default: result = 'Щось пішло не так';
 }
 
-alert(`${first}  ${operation}  ${second} = ${result} `)
+alert(`${first}  ${operation}  ${second} = ${result} `);
 
