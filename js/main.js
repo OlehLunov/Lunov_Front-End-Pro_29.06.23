@@ -1,16 +1,21 @@
-let numOrStr = prompt('input number or string');
-console.log(numOrStr);
+let length = prompt("Введіть довжину массиву:");
 
-switch (true) {
-    case numOrStr === null:
-        console.log('ви скасували');
-    break;
-    case numOrStr.trim() === '':
-        console.log('Empty String');
-    break;
-    case isNaN( +numOrStr ):
-        console.log(' number is Ba_NaN');
-    break;
-    default: 
-        console.log('OK!');
+let arr = [];
+
+for (let i = 0; i < length; i++) {
+    let element = prompt("Введіть елемент масиву " + (i + 1) + ":");
+    arr.push(element);
 }
+alert("Введений вами массив: " + arr.join(", ") + "!");
+
+arr.sort();
+
+alert("Відсортований массив: " + arr.join(", ") + "!");
+
+arr.splice(1,3);
+alert("Відсортований массив: " + arr.join(", ") + "!");
+
+
+
+
+
