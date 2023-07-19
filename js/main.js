@@ -9,7 +9,6 @@ for (let i = 0; i < length; i++) {
 alert("Введений вами массив: " + arr.join(", ") + "!");
 
 arr.sort();
-
 alert("Відсортований массив: " + arr.join(", ") + "!");
 
 arr.splice(1,3);
