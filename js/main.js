@@ -1,3 +1,34 @@
+let task = '';
+for (let i = 10; i<=20; i++) {
+    task += i + ",";
+}
+task = task.slice(0,-1);
+alert(task);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 let length = prompt("Введіть довжину массиву:");
 
 let arr = [];
@@ -16,6 +47,7 @@ arr.splice(1,3);
 alert("Відсортований массив: " + arr.join(", ") + "!");
 
 
+*/
 
 
 
