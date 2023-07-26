@@ -12,9 +12,7 @@ let choseElement = prompt("Введіть елемент массиву який
 
 function removeElement(array, item) {
     const index = array.indexOf(item);
-    if (index !== -1) {
         array.splice(index, 1);
-    }
 }
 removeElement(arr, choseElement);
 
