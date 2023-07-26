@@ -8,7 +8,8 @@ for (let i = 0; i < length; i++) {
 }
 alert("Введений вами массив: " + arr.join(", ") + "!");
 
-let choseElement = prompt("Введіть введіть елемент массиву який хочете видалити:");
+let choseElement = prompt("Введіть елемент массиву який хочете видалити:");
+
 function removeElement(array, item) {
     const index = array.indexOf(item);
     if (index !== -1) {
