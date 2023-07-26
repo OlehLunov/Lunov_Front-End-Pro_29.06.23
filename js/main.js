@@ -94,7 +94,7 @@ for (let i = 1; i <= giveNum; i++) {
 }
 console.log("Дільники заданного числа: " + dividers.slice(0,-2) + ";");
 console.log(`Кількість парних дільників: ${evenDividers};`);
-console.log(`Cумма парних дільників: ${dividersSum};`);
+console.log(`Сума парних дільників: ${dividersSum};`);
 
 /*------- таблиця множення----------*/
 
