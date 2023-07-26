@@ -1,125 +1,65 @@
-let numbers = '';
+let step = "";
 
-for (let i = 10; i <=20; i++){
-    numbers += i + ', ';
+for (let i = 20; i <= 30; i += 0.5) {
+    step += i.toFixed(1) + ", ";
 }
-console.log(numbers.slice(0,-2));
-/*-------------------Квадрати--------------------------*/
+console.log(step.slice(0,-2));
 
-let square = "";
+/*-------dollar---------*/
 
-for (let i = 10; i <= 20; i++){
-    square += (i**2) + ', ';
-}
-console.log(square.slice(0,-2));
+const course = 27;
 
-/*let square = [];
-
-for (let i = 10; i <= 20; i++) {
-  square.push(i ** 2);
-}
-console.log(square);*/
-
-/*--------------------таблиця множення на 7------------------------------*/
-
-
-for( let i = 1; i <=10; i++){
-    let table = 7 * i;
-    console.log(`7 * ${i} = ${table}`);
+for (let i = 10; i <= 100; i += 10){
+    let hryvnia = i * course;
+    console.log(`${i} долларів дорівнює ${hryvnia} гривень`);
 }
 
-/*--------------------сумма цілих--------------------------*/
+/*-------цілі числа-------*/
 
-let sum = 0;
+let num = +prompt("Введіть ціле число:");
 
-for( let i = 1; i <= 15; i++){
-    sum += i;
-}
-console.log(sum);
-
-/*---------------добуток цілих----------------------*/
-
-let prod = 1;
-
-for( let i = 15; i <= 35; i++){
-    prod *= i;
-}
-console.log(prod);
-
-/*-------арефметичне------------------------*/
-let sumAverage = 0;
-let num = 500;
-for (let i = 0; i <= num; i++){
-    sumAverage += i;
-}
-let average = sumAverage/num;
-console.log (average);
-
-/*------сумма парних________________*/
-
-let couples = 0;
-for ( let i = 30; i <= 80; i += 2){
-    couples += i;
-}
-console.log (couples);
-
-/*--------- кратні 3 ----------*/
-
-let multiplicity = "";
-
-for (let i = 100; i <= 200; i++){
-    if (i % 3 === 0) {
-        multiplicity += i + ", ";
+for (let i = 1; i <= 100; i++) {
+    let square = i**2;
+    if (square <= num) {
+        console.log(i);
+    } else {
+        break;
     }
 }
-console.log(multiplicity.slice(0,-2));
+/*-------Просте число-----*/
 
-/*------ натуральне число - парнні -------*/
+let inputNum = +prompt("Введіть число:");
+let primeNum = true;
 
-let giveNum = 36;
-let dividers = "";
-let evenDividers = 0;
-let dividersSum = 0;
-
-for (let i = 1; i <= giveNum; i++) {
-    if (giveNum % i === 0) {
-        dividers += i + ', ';
-        if (i % 2 === 0){
-            evenDividers++
-            if (giveNum % i === 0 && i % 2 === 0) {
-                dividersSum += i;
-            }
+if (inputNum <= 1){
+    primeNum = false;
+} else {
+    for (let i = 2; i ** 2 <= inputNum; i++) {
+        if (inputNum % i === 0) {
+            primeNum = false;
+            break;
         }
     }
 }
-console.log("Дільники заданного числа: " + dividers.slice(0,-2) + ";");
-console.log(`Кількість парних дільників: ${evenDividers};`);
-console.log(`Сума парних дільників: ${dividersSum};`);
-
-/*------- таблиця множення----------*/
-
-for (let i = 1; i <= 10; i++){
-    for (let j = 1; j <= 10; j++){
-        let  fullTable = i * j;
-        console.log(`${i} * ${j} = ${fullTable}`);
-    }
+if (primeNum) {
+    console.log("Просте.");
+} else {
+    console.log("Не  просте.");
 }
 
+/*---------------------------------------*/
 
+let raising = +prompt("Ввести число:");
+let saveRaising = raising;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+while (raising > 1 && raising % 3 === 0) {
+    raising /= 3;
+}
+if (raising === 1) {
+    console.log(`${saveRaising} - можна`);
+} else {
+    console.log(`${saveRaising} - не можна`);
+}
 
 
 
