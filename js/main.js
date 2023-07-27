@@ -49,10 +49,6 @@ for (let i = 0; i < arr.length; i++){
     if (arr[i] > 0){
         prodPos *= arr[i];
     }
-
-    if (i !== maxElemNum) {
-        arr[i] = 0;
-    }
 }
 
 for (let i = 0; i < arr.length; i++){
