@@ -1,4 +1,4 @@
-const mainArray = [6, 2, 'hello', 7, 'world', 2, 5];
+const mainArray = [8, 2, 'Oleg', 7, 'Lunov', 5, 5];
 const result = numbersAverage(mainArray);
 
 function numbersAverage (array) {
@@ -51,7 +51,7 @@ alert(`Резултат вашого виразу: ${mathResult}`);
 
 let  mainArrayLength = +prompt('Введіть довжину основного масиву:');
 let  secondaryArrayLength = +prompt('Введіть довжину внутрішнього масиву:');
-const arrResult = twoArr;
+const arrResult = twoArr();
 
 function twoArr() {
 
@@ -68,7 +68,7 @@ function twoArr() {
     return mainArr;
 }
 
-console.log(arrResult());
+console.log(arrResult);
 
 
 
