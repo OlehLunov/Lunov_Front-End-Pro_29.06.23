@@ -1,24 +1,14 @@
-/*
-let userInput = +prompt(`Введіть аргумент: `);
-const lockingResult = locking(userInput);
-
-function locking (){
-    let start = +prompt(`Введіть параметр: `);
-    return function (b){
-        userInput += start;
-        return userInput;
-    }
-}
-alert(lockingResult);*/
-
-const userInput = +prompt(`Введіть аргумент: `);
 const lockingResult = locking();
 
 function locking() {
-    let start = +prompt(`Введіть параметр: `);
+    let sum = 0;
 
-    return function(b) {
-        return b + start;
-    };
+    return function(param) {
+        sum += param;
+        return sum;
+    }
 }
-console.log(lockingResult(userInput));
+console.log(lockingResult(3));
+console.log(lockingResult(5));
+console.log(lockingResult(20));
+console.log(lockingResult(30));
