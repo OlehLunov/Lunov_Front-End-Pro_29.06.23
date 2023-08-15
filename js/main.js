@@ -21,14 +21,3 @@ class Car {
         }
     }
 }
-<<<<<<< HEAD
-=======
-
-const owner1 = new Human("Іван", 25);
-const owner2 = new Human("Марія", 17);
-const owner3 = new Human("Петро", 30);
-
-const car1 = new Car("Toyota", "Camry", 2020, "ВС1234АВ", owner1);
-const car2 = new Car("Ford", "Mustang", 2018, "ВН5678ЕЕ", owner2);
-const car3 = new Car("Chevrolet", "Cruze", 2015, "ВІ9012КК", owner3);
->>>>>>> 715243a2adc38a525fbef4e7053c953d1a997519
