@@ -10,11 +10,10 @@ function visual(numbers) {
     for (let i = 0; i < numbers; i++) {
         let rows = " ";
         for (let k = 0; k <= i; k++){
-            const value = triangle(i, k);
-            rows += value + ' ';
+            rows += triangle(i, k) + " ";
         }
         console.log (' '.repeat((numbers - i)) + rows);
     }
 }
-const numberOfRows = 13;
-visual(numberOfRows);
+const rowsCount = 13;
+visual(rowsCount);
