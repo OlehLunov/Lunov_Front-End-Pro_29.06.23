@@ -1,24 +1,20 @@
-/*
-let userInput = +prompt(`Введіть аргумент: `);
-const lockingResult = locking(userInput);
-
-function locking (){
-    let start = +prompt(`Введіть параметр: `);
-    return function (b){
-        userInput += start;
-        return userInput;
+function triangle (rows, cols) {
+    if ( cols === 0 || cols === rows) {
+        return 1;
+    } else {
+        return triangle(rows - 1, cols -1) + triangle(rows - 1, cols);
     }
 }
-alert(lockingResult);*/
 
-const userInput = +prompt(`Введіть аргумент: `);
-const lockingResult = locking();
-
-function locking() {
-    let start = +prompt(`Введіть параметр: `);
-
-    return function(b) {
-        return b + start;
-    };
+function visual(numbers) {
+    for (let i = 0; i < numbers; i++) {
+        let rows = " ";
+        for (let k = 0; k <= i; k++){
+            const value = triangle(i, k);
+            rows += value + ' ';
+        }
+        console.log (' '.repeat((numbers - i)) + rows);
+    }
 }
-console.log(lockingResult(userInput));
+const numberOfRows = 13;
+visual(numberOfRows);
