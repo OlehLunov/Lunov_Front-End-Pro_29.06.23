@@ -15,5 +15,5 @@ function visual(numbers) {
         console.log (' '.repeat((numbers - i)) + rows);
     }
 }
-const rowsCount = 13;
+const rowsCount = 14;
 visual(rowsCount);
