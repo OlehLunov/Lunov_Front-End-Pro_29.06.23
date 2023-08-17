@@ -29,17 +29,20 @@ class Student {
     }
 
     summary(){
-        /*const averageGrade = this.AveragePoints();*/
-        let averageAttendance = 0;
+
+        let attendanceCount = 0;
 
         for (let i = 0; i <= this.attendance.length; i++){
             if (this.attendance[i] === true){
-                averageAttendance++
+                attendanceCount++
             }
         }
-        if (this.AveragePoints() > 90 && averageAttendance > 0.9){
+
+        const attendanceRating = attendanceCount / this.attendance.length;
+
+        if (this.AveragePoints() > 90 && attendanceRating > 0.9){
             return "Молодець!";
-        } else if (this.AveragePoints()> 90 || averageAttendance > 0.9) {
+        } else if (this.AveragePoints() > 90 || attendanceRating > 0.9) {
             return "Добре, але можна краще";
         } else {
             return "Редиска!";
@@ -51,13 +54,11 @@ const studentGrades = [85, 92, 90, 95, 88];
 const student = new Student("Іван", "Петров", 2000, studentGrades);
 
 
-
 student.present(0);
 student.present(1);
 student.present(2);
 student.present(3);
 student.absent(4);
-
 
 
 console.log(`Ім'я: ${student.name} ${student.lastname}`);
