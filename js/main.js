@@ -50,7 +50,7 @@ class Student {
     }
 }
 
-const student1 = new Student("Олег", "Луньов", 2000,);
+let student1 = new Student("Олег", "Луньов", 2000);
 student1.present(0);
 student1.present(1);
 student1.present(2);
@@ -77,11 +77,11 @@ student1.present(23);
 student1.present(24);
 
 
-const student2 = new Student("Олег", "Луньов", 2000,);
+let student2 = new Student("Олег", "Луньов", 2000);
 student2.present(0);
 student2.absent(1);
 
-const student3 = new Student("Олег", "Луньов", 2000,);
+let student3 = new Student("Олег", "Луньов", 2000);
 student3.present(0);
 student3.absent(1);
 
