@@ -1,0 +1,15 @@
+#input{
+    margin: 50px 0 0 30px;
+}
+#input:hover{
+    cursor: pointer;
+}
+
+#some__div{
+    position: absolute;
+    top: 50px;
+    margin-left: 200px;
+    background-color: tomato;
+    width: 100px;
+    height: 100px;
+}
