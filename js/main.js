@@ -1,17 +1,8 @@
-const table = document.createElement("table");
+const categoryAdd = document.getElementsByClassName("nav__link");
+const productList = document.getElementsByClassName("products")[0];
 
-let rows = 10;
-let cols = 10;
-let value = 1;
-
-for ( let i = 0; i < rows; i++){
-    const row = document.createElement("tr");
-    for ( let k = 0; k < cols; k++){
-        const cell = document.createElement("td");
-        cell.textContent = value.toString();
-        row.appendChild(cell);
-        value++;
-    }
-    table.appendChild(row);
+for (let i = 0; i < categoryAdd.length; i++) {
+    categoryAdd[i].addEventListener("click", function () {
+        productList.style.display = "block";
+    });
 }
-document.body.appendChild(table);
