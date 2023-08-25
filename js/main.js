@@ -1,8 +1,3 @@
-const allCategoryClose = document.querySelectorAll('.phones, .laptops, .tablets');
-allCategoryClose.forEach(category => {
-    category.style.display = 'none';
-});
-
 function productList (element) {
     const categoryName = element.getAttribute('class');
 
@@ -28,13 +23,47 @@ function phonesItem (phones) {
         document.querySelector('.iphone__info').style.display = 'block';
     } else if (phoneName === 'samsung-link'){
         document.querySelector('.samsung__info').style.display = 'block';
-    } else if (phoneName === 'xiomi__info'){
-        document.querySelector('.xiomi__info').style.display = 'block';
+    } else if (phoneName === 'xiaomi-link'){
+        document.querySelector('.xiaomi__info').style.display = 'block';
     }
 }
-document.querySelectorAll('.iphone-link, .samsung-link, .xiomi-link').forEach(phonesLink => {
+document.querySelectorAll('.iphone-link, .samsung-link, .xiaomi-link').forEach(phonesLink => {
     phonesLink.addEventListener('click', function() {
         phonesItem(phonesLink);
     });
 });
 
+function laptopsItem (laptops) {
+    const laptopsItem = laptops.getAttribute('class');
+
+    if (laptopsItem === 'mac-link') {
+        document.querySelector('.mac__info').style.display = 'block';
+    } else if (laptopsItem === 'dell-link'){
+        document.querySelector('.dell__info').style.display = 'block';
+    } else if (laptopsItem === 'msi-link'){
+        document.querySelector('.msi__info').style.display = 'block';
+    }
+}
+document.querySelectorAll('.mac-link, .dell-link, .msi-link').forEach(laptopsLink => {
+    laptopsLink.addEventListener('click', function() {
+        laptopsItem(laptopsLink);
+    });
+});
+
+
+function tabletsItem (tablets) {
+    const tabletsItem = tablets.getAttribute('class');
+
+    if (tabletsItem === 'ipad-link') {
+        document.querySelector('.ipad__info').style.display = 'block';
+    } else if (tabletsItem === 'lenovo-link'){
+        document.querySelector('.lenovo__info').style.display = 'block';
+    } else if (tabletsItem === 'redmi-link'){
+        document.querySelector('.redmi__info').style.display = 'block';
+    }
+}
+document.querySelectorAll('.ipad-link, .lenovo-link, .redmi-link').forEach(tabletsLink => {
+    tabletsLink.addEventListener('click', function() {
+        tabletsItem(tabletsLink);
+    });
+});
