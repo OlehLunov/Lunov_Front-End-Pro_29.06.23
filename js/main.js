@@ -67,3 +67,9 @@ document.querySelectorAll('.ipad-link, .lenovo-link, .redmi-link').forEach(table
         tabletsItem(tabletsLink);
     });
 });
+
+function hideInfo () {
+    const infoHide = document.querySelectorAll('.iphone__info, .samsung__info, .xiaomi__info, .mac__info, .dell__info, .msi__info, .ipad__info, .lenovo__info, .redmi__info')
+    const productsHide = document.querySelectorAll('.phones__list, .laptops__list, .tablets__list')
+}
+
