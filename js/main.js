@@ -1,54 +1,21 @@
+function productList (element) {
+    const categoryName = element.getAttribute('class');
 
-document.querySelector(".cat__link").addEventListener('click', function () {
-    document.querySelector(".phones").style.display = "block";
-});
-document.querySelector(".iphone-link").addEventListener('click', function () {
-    document.querySelector(".iphone__info").style.display = "block";
-});
-
-document.querySelector(".samsung-link").addEventListener('click', function () {
-    document.querySelector(".samsung__info").style.display = "block";
-});
-
-document.querySelector(".xiomi-link").addEventListener('click', function () {
-    document.querySelector(".xiomi__info").style.display = "block";
-});
-
-
-{
-    document.querySelector(".cat__link1").addEventListener('click', function () {
-        document.querySelector(".laptops").style.display = "block";
+    const allCategoryClose = document.querySelectorAll('.phones, .laptops, .tablets');
+    allCategoryClose.forEach(category => {
+        category.style.display = 'none';
     });
 
-    document.querySelector(".mac-link").addEventListener('click', function () {
-        document.querySelector(".mac__info").style.display = "block";
-    });
-
-    document.querySelector(".dell-link").addEventListener('click', function () {
-        document.querySelector(".dell__info").style.display = "block";
-    });
-
-    document.querySelector(".msi-link").addEventListener('click', function () {
-        document.querySelector(".msi__info").style.display = "block";
-    });
-
+    if (categoryName === 'cat__link') {
+        document.querySelector('.phones').style.display = 'block';
+    } else if (categoryName === 'cat__link1'){
+        document.querySelector('.laptops').style.display = 'block';
+    } else if (categoryName === 'cat__link2'){
+        document.querySelector('.tablets').style.display = 'block';
+    }
 }
-
-
-{
-    document.querySelector(".cat__link2").addEventListener('click', function () {
-        document.querySelector(".tablets").style.display = "block";
+document.querySelectorAll('.cat__link, .cat__link1, .cat__link2').forEach(link => {
+    link.addEventListener('click', function() {
+        productList(link);
     });
-
-    document.querySelector(".ipad-link").addEventListener('click', function () {
-        document.querySelector(".ipad__info").style.display = "block";
-    });
-
-    document.querySelector(".lenovo-link").addEventListener('click', function () {
-        document.querySelector(".lenovo__info").style.display = "block";
-    });
-
-    document.querySelector(".redmi-link").addEventListener('click', function () {
-        document.querySelector(".redmi__info").style.display = "block";
-    });
-}
+});
