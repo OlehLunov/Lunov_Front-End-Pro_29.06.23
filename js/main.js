@@ -82,7 +82,6 @@ function hideInfo () {
 document.querySelectorAll('.smarts1_btn').forEach(btn => {
     btn.addEventListener('click', function() {
         hideInfo();
-        // Показать алерт с сообщением о добавлении в корзину
         alert('Товар добавлен в корзину');
     });
 });
