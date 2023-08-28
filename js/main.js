@@ -1,88 +1,120 @@
-function productList (element) {
-    const categoryName = element.getAttribute('class');
+const products = [
+    { name: 'IPHONE', category: 'phones', text: '1111', price: '1111' },
+    { name: 'SAMSUNG', category: 'phones', text: '2222', price: '22222' },
+    { name: 'XIAOMI', category: 'phones', text: '3333', price: '3333' },
+    { name: 'MAC', category: 'laptops', text: '1111', price: '1111' },
+    { name: 'DELL', category: 'laptops', text: '2222', price: '22222' },
+    { name: 'MSI', category: 'laptops', text: '3333', price: '3333' },
+    { name: 'IPAD', category: 'tablets', text: '1111', price: '1111' },
+    { name: 'LENOVO', category: 'tablets', text: '2222', price: '22222' },
+    { name: 'REDMI', category: 'tablets', text: '3333', price: '3333' },
+];
 
-    if (categoryName === 'cat__link') {
-        document.querySelector('.phones').style.display = 'block';
-    } else if (categoryName === 'cat__link1'){
-        document.querySelector('.laptops').style.display = 'block';
-    } else if (categoryName === 'cat__link2'){
-        document.querySelector('.tablets').style.display = 'block';
-    }
+const smartsLink = document.querySelector('.smart__link');
+const phones = document.querySelector('.phones');
+const laptopsLink = document.querySelector('.laptops__link');
+const laptops = document.querySelector('.laptops');
+const tabletsLink = document.querySelector('.tablets__link');
+const tablets = document.querySelector('.tablets');
+
+
+smartsLink.addEventListener('click', function() {
+    phones.style.display = 'block';
+    laptops.style.display = "none"
+    tablets.style.display = "none"
+});
+
+laptopsLink.addEventListener('click', function() {
+    laptops.style.display = 'block';
+    phones.style.display = "none"
+    tablets.style.display = "none"
+});
+
+tabletsLink.addEventListener('click', function() {
+    tablets.style.display = 'block';
+    laptops.style.display = "none"
+    phones.style.display = "none"
+});
+
+const productInfo = document.querySelector('.product__info');
+const nameInfo = productInfo.querySelector('.name');
+const categoryInfo = productInfo.querySelector('.category');
+const textInfo = productInfo.querySelector('.text');
+const priceButton = productInfo.querySelector('.price');
+
+// Функція для оновлення інформації про товар
+function updateProductInfo(name, category, text, price) {
+    nameInfo.textContent = name;
+    categoryInfo.textContent = category;
+    textInfo.textContent = text;
+    priceButton.textContent = `Купити за ${price}`;
+    priceButton.addEventListener('click', () => {
+        alert(`Ви купили ${name} за ${price}`);
+        resetProductInfo();
+    });
+    productInfo.style.display = 'block';
 }
-document.querySelectorAll('.cat__link, .cat__link1, .cat__link2').forEach(link => {
-    link.addEventListener('click', function() {
-        productList(link);
+
+// Функція для скидання інформації про товар
+function resetProductInfo() {
+    nameInfo.textContent = '';
+    categoryInfo.textContent = '';
+    textInfo.textContent = '';
+    priceButton.textContent = 'Купити';
+    priceButton.removeEventListener('click', () => {});
+    productInfo.style.display = 'none';
+}
+
+// Додайте обробник подій для посилань на товари
+const phoneLinks = document.querySelectorAll('.phones__list a');
+const laptopLinks = document.querySelectorAll('.laptops__list a');
+const tabletLinks = document.querySelectorAll('.tablets__list a');
+
+phoneLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const productName = this.textContent;
+        const product = products.find(p => p.name === productName);
+        updateProductInfo(product.name, product.category, product.text, product.price);
+    });
+});
+
+laptopLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const productName = this.textContent;
+        const product = products.find(p => p.name === productName);
+        updateProductInfo(product.name, product.category, product.text, product.price);
+    });
+});
+
+tabletLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const productName = this.textContent;
+        const product = products.find(p => p.name === productName);
+        updateProductInfo(product.name, product.category, product.text, product.price);
+    });
+});
+
+const categoryLinks = document.querySelectorAll('.nav__list-item a');
+
+categoryLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        productInfo.style.display = 'none';
     });
 });
 
 
-function phonesItem (phones) {
-    const phoneName = phones.getAttribute('class');
-
-    if (phoneName === 'iphone-link') {
-        document.querySelector('.iphone__info').style.display = 'block';
-    } else if (phoneName === 'samsung-link'){
-        document.querySelector('.samsung__info').style.display = 'block';
-    } else if (phoneName === 'xiaomi-link'){
-        document.querySelector('.xiaomi__info').style.display = 'block';
-    }
+function hideAllProductBlocks() {
+    phones.style.display = 'none';
+    laptops.style.display = 'none';
+    tablets.style.display = 'none';
+    resetProductInfo();
 }
-document.querySelectorAll('.iphone-link, .samsung-link, .xiaomi-link').forEach(phonesLink => {
-    phonesLink.addEventListener('click', function() {
-        phonesItem(phonesLink);
-    });
+
+priceButton.addEventListener('click', () => {
+    resetProductInfo(); // Скинути інформацію про товар
+    hideAllProductBlocks(); // Сховати блоки після покупки товару
 });
-
-function laptopsItem (laptops) {
-    const laptopsItem = laptops.getAttribute('class');
-
-    if (laptopsItem === 'mac-link') {
-        document.querySelector('.mac__info').style.display = 'block';
-    } else if (laptopsItem === 'dell-link'){
-        document.querySelector('.dell__info').style.display = 'block';
-    } else if (laptopsItem === 'msi-link'){
-        document.querySelector('.msi__info').style.display = 'block';
-    }
-}
-document.querySelectorAll('.mac-link, .dell-link, .msi-link').forEach(laptopsLink => {
-    laptopsLink.addEventListener('click', function() {
-        laptopsItem(laptopsLink);
-    });
-});
-
-
-function tabletsItem (tablets) {
-    const tabletsItem = tablets.getAttribute('class');
-
-    if (tabletsItem === 'ipad-link') {
-        document.querySelector('.ipad__info').style.display = 'block';
-    } else if (tabletsItem === 'lenovo-link'){
-        document.querySelector('.lenovo__info').style.display = 'block';
-    } else if (tabletsItem === 'redmi-link'){
-        document.querySelector('.redmi__info').style.display = 'block';
-    }
-}
-document.querySelectorAll('.ipad-link, .lenovo-link, .redmi-link').forEach(tabletsLink => {
-    tabletsLink.addEventListener('click', function() {
-        tabletsItem(tabletsLink);
-    });
-});
-
-function hideInfo () {
-    const infoHide = document.querySelectorAll('.iphone__info, .samsung__info, .xiaomi__info, .mac__info, .dell__info, .msi__info, .ipad__info, .lenovo__info, .redmi__info')
-    const productsHide = document.querySelectorAll('.phones__list, .laptops__list, .tablets__list')
-
-    infoHide.forEach(element => {
-        element.style.display = 'none';
-    });
-    productsHide.forEach(element => {
-        element.style.display = 'none';
-    })
-}
-document.querySelectorAll('.smarts1_btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        hideInfo();
-        alert('Товар добавлен в корзину');
-    });
-});
-
