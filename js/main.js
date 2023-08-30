@@ -8,6 +8,7 @@ const products = [
     { name: 'IPAD', category: 'tablets', text: '1111', price: '1111' },
     { name: 'LENOVO', category: 'tablets', text: '2222', price: '22222' },
     { name: 'REDMI', category: 'tablets', text: '3333', price: '3333' },
+
 ];
 
 const smartsLink = document.querySelector('.smart__link');
@@ -42,21 +43,18 @@ const categoryInfo = productInfo.querySelector('.category');
 const textInfo = productInfo.querySelector('.text');
 const priceButton = productInfo.querySelector('.price');
 
-// Функція для оновлення інформації про товар
-function updateProductInfo(name, category, text, price) {
+function updateProduct(name, category, text, price) {
     nameInfo.textContent = name;
     categoryInfo.textContent = category;
     textInfo.textContent = text;
     priceButton.textContent = `Купити за ${price}`;
     priceButton.addEventListener('click', () => {
-        alert(`Ви купили ${name} за ${price}`);
-        resetProductInfo();
+        alert(`Товар ${name} додано до кошика!`);
     });
     productInfo.style.display = 'block';
 }
 
-// Функція для скидання інформації про товар
-function resetProductInfo() {
+function resetProduct() {
     nameInfo.textContent = '';
     categoryInfo.textContent = '';
     textInfo.textContent = '';
@@ -65,7 +63,6 @@ function resetProductInfo() {
     productInfo.style.display = 'none';
 }
 
-// Додайте обробник подій для посилань на товари
 const phoneLinks = document.querySelectorAll('.phones__list a');
 const laptopLinks = document.querySelectorAll('.laptops__list a');
 const tabletLinks = document.querySelectorAll('.tablets__list a');
@@ -75,7 +72,7 @@ phoneLinks.forEach(link => {
         event.preventDefault();
         const productName = this.textContent;
         const product = products.find(p => p.name === productName);
-        updateProductInfo(product.name, product.category, product.text, product.price);
+        updateProduct(product.name, product.category, product.text, product.price);
     });
 });
 
@@ -84,7 +81,7 @@ laptopLinks.forEach(link => {
         event.preventDefault();
         const productName = this.textContent;
         const product = products.find(p => p.name === productName);
-        updateProductInfo(product.name, product.category, product.text, product.price);
+        updateProduct(product.name, product.category, product.text, product.price);
     });
 });
 
@@ -93,7 +90,7 @@ tabletLinks.forEach(link => {
         event.preventDefault();
         const productName = this.textContent;
         const product = products.find(p => p.name === productName);
-        updateProductInfo(product.name, product.category, product.text, product.price);
+        updateProduct(product.name, product.category, product.text, product.price);
     });
 });
 
@@ -106,15 +103,13 @@ categoryLinks.forEach(link => {
     });
 });
 
-
 function hideAllProductBlocks() {
     phones.style.display = 'none';
     laptops.style.display = 'none';
     tablets.style.display = 'none';
-    resetProductInfo();
 }
 
 priceButton.addEventListener('click', () => {
-    resetProductInfo(); // Скинути інформацію про товар
-    hideAllProductBlocks(); // Сховати блоки після покупки товару
+    resetProduct();
+    hideAllProductBlocks();
 });
