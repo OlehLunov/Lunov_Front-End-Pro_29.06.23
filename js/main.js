@@ -18,18 +18,18 @@ const tablets = document.querySelector('.tablets');
 
 smartsLink.addEventListener('click', function() {
     phones.style.display = 'block';
-    laptops.style.display = "none"
-    tablets.style.display = "none"
+    laptops.style.display = "none";
+    tablets.style.display = "none";
 });
 laptopsLink.addEventListener('click', function() {
     laptops.style.display = 'block';
-    phones.style.display = "none"
-    tablets.style.display = "none"
+    phones.style.display = "none";
+    tablets.style.display = "none";
 });
 tabletsLink.addEventListener('click', function() {
     tablets.style.display = 'block';
-    laptops.style.display = "none"
-    phones.style.display = "none"
+    laptops.style.display = "none";
+    phones.style.display = "none";
 });
 
 const phonesItem = document.querySelector('.phones');
