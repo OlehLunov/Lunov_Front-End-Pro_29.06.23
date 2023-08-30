@@ -8,6 +8,7 @@ const products = [
     { name: 'IPAD', category: 'tablets', text: '1111', price: '1111' },
     { name: 'LENOVO', category: 'tablets', text: '2222', price: '22222' },
     { name: 'REDMI', category: 'tablets', text: '3333', price: '3333' },
+
 ];
 const smartsLink = document.querySelector('.smart__link');
 const phones = document.querySelector('.phones');
