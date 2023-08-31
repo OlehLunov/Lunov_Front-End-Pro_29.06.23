@@ -68,7 +68,7 @@ function updateInfo(name, category, text, buy) {
     nameInfo.textContent = name;
     categoryInfo.textContent = `Категорія: ${category}`;
     textInfo.textContent = text;
-    buyButton.textContent = `Купити за ${buy}`;
+    buyButton.textContent = `Купити`;
     productInfo.style.display = 'block';
 }
 
