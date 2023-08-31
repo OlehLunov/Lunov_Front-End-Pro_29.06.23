@@ -76,7 +76,7 @@ const categoryLinks = document.querySelectorAll('.nav__list-item a');
 categoryLinks.forEach(link => {
     link.addEventListener('click', function(event) {
         event.preventDefault();
-        resetProductInfo();
+        resetProduct();
     });
 });
 buyButton.addEventListener('click', function() {
@@ -85,10 +85,10 @@ buyButton.addEventListener('click', function() {
     laptops.style.display = 'none';
     phones.style.display = "none";
     tablets.style.display = "none";
-    resetProductInfo();
+    resetProduct();
 });
 
-function resetProductInfo() {
+function resetProduct() {
     nameInfo.textContent = '';
     categoryInfo.textContent = '';
     textInfo.textContent = '';

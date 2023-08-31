@@ -34,13 +34,44 @@ h1{
     margin-top: 20px;
 }
 
-.product__info {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+.list-item a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px;
+    border: 1px solid blue;
+    margin-bottom: 5px;
+    background-color: #f9f9f9;
 }
 
+.product__info {
+    background-color: #fff;
+    border: 1px solid blue;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
 
+.product__info h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
 
+.product__info .category {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.product__info .text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.product__info .price {
+    background-color: royalblue;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
 
