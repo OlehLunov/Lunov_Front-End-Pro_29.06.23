@@ -7,10 +7,10 @@ function showData(data) {
     let speed = data.wind.speed;
     let deg = data.wind.deg;
 
-    let iconCode = data.weather[0].icon;
+    let icon = data.weather[0].icon;
 
-    let iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
-    document.getElementById("icon").src = iconUrl;
+    let iconLink = `http://openweathermap.org/img/w/${icon}.png`;
+    document.getElementById("icon").src = iconLink;
 
     document.getElementById("city").textContent = city;
     document.getElementById("temp").textContent = `Температура: ${temp}`;
@@ -53,10 +53,10 @@ fetchWeather();
 //     if (xhr.readyState === 4 && xhr.status === 200) {
 //         let data = JSON.parse(xhr.responseText);
     
-//         let iconCode = data.weather[0].icon;
+//         let icon = data.weather[0].icon;
 
-//         let iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
-//         document.getElementById("icon").src = iconUrl;
+//         let iconLink = `http://openweathermap.org/img/w/${icon}.png`;
+//         document.getElementById("icon").src = iconLink;
 
 //         let city = data.name;
 //         let temp = data.main.temp;

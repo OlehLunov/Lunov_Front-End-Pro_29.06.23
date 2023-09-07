@@ -5,7 +5,6 @@ body{
 
 .container{
     position: absolute;
-    margin-top: 10%;
     left: 40%;
     border: 2px solid aqua;
     border-radius: 30px;
