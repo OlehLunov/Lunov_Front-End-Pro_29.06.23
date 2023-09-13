@@ -1,33 +1,19 @@
-const postInput = document.getElementById('postInput');
-const searchBtn = document.getElementById('searchBtn');
-const postContainer = document.getElementById('postContainer');
-
-searchBtn.addEventListener("click", () => {
-    const postId = postInput.value;
-
-    if (postId < 1 || postId > 100) {
-        alert("ID тільки від 1 до 100");
-        return;
-    }
-
-    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-    .then((response) => {
-        if (!response.ok) {
-            throw new Error(`Помилка: ${response.status}`);
+let array = [1, 2, [2.1, 2.2,2.3], 3];
+        let s = "";
+        generateList(array);
+        document.body.innerHTML = s;
+ 
+        function generateList(array) {
+            s += "<ul>";
+            for (let i = 0, count = array.length; i < count; ++i) {
+                let row = array[i];
+                if (Array.isArray(row)) {
+                    s += "<li>";
+                    generateList(row);
+                    s += "</li>";
+                }
+                else
+                    s += `<li>${row}</li>`;
+            }
+            s += "</ul>";
         }
-        return response.json();
-    })
-    
-    .then((post) => {
-        postContainer.innerHTML = `
-            <h2>Пост №${post.id}</h2>
-            <h3>${post.title}</h3>
-            <p>${post.body}</p>
-            <button id="commentsBtn">Отримати коментарі</button>
-        `;
-    })
-    .catch((error) => {
-        console.error("Помилка при запиті поста:", error);
-        postContainer.innerHTML = "Помилка при запиті поста.";
-    });
-});
