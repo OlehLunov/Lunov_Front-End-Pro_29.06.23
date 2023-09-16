@@ -1,79 +1,118 @@
-function showData(data) {
-    let city = data.name;
-    let temp = data.main.temp;
-    let pressure = data.main.pressure;
-    let description = data.weather[0].description;
-    let humidity = data.main.humidity;
-    let speed = data.wind.speed;
-    let deg = data.wind.deg;
+const products = [
+    { name: 'IPHONE', category: 'phones', text: '1111', price: '1111' },
+    { name: 'SAMSUNG', category: 'phones', text: '2222', price: '22222' },
+    { name: 'XIAOMI', category: 'phones', text: '3333', price: '3333' },
+    { name: 'MAC', category: 'laptops', text: '1111', price: '1111' },
+    { name: 'DELL', category: 'laptops', text: '2222', price: '22222' },
+    { name: 'MSI', category: 'laptops', text: '3333', price: '3333' },
+    { name: 'IPAD', category: 'tablets', text: '1111', price: '1111' },
+    { name: 'LENOVO', category: 'tablets', text: '2222', price: '22222' },
+    { name: 'REDMI', category: 'tablets', text: '3333', price: '3333' },
 
-    let icon = data.weather[0].icon;
+];
 
-    let iconLink = `http://openweathermap.org/img/w/${icon}.png`;
-    document.getElementById("icon").src = iconLink;
+const categoryNav = document.querySelector(".nav");
+const smartsLink = document.querySelector('.smart__link');
+const phones = document.querySelector('.phones');
+const laptopsLink = document.querySelector('.laptops__link');
+const laptops = document.querySelector('.laptops');
+const tabletsLink = document.querySelector('.tablets__link');
+const tablets = document.querySelector('.tablets');
 
-    document.getElementById("city").textContent = city;
-    document.getElementById("temp").textContent = `Температура: ${temp}`;
-    document.getElementById("pressure").textContent = `Тиск: ${pressure}`;
-    document.getElementById("description").textContent = `Опис: ${description}`;
-    document.getElementById("humidity").textContent = `Вологість: ${humidity}`;
-    document.getElementById("speed").textContent = `Швидкість вітру: ${speed}`;
-    document.getElementById("deg").textContent = `Напрям у градусах: ${deg}`;
+smartsLink.addEventListener('click', function() {
+    phones.style.display = 'block';
+    laptops.style.display = "none";
+    tablets.style.display = "none";
+});
+laptopsLink.addEventListener('click', function() {
+    laptops.style.display = 'block';
+    phones.style.display = "none";
+    tablets.style.display = "none";
+});
+tabletsLink.addEventListener('click', function() {
+    tablets.style.display = 'block';
+    laptops.style.display = "none";
+    phones.style.display = "none";
+});
+
+const phonesItem = document.querySelector('.phones');
+const laptopsItem = document.querySelector('.laptops');
+const tabletsItem = document.querySelector('.tablets');
+const productInfo = document.querySelector('.product__info');
+const nameInfo = productInfo.querySelector('.name');
+const categoryInfo = productInfo.querySelector('.category');
+const textInfo = productInfo.querySelector('.text');
+const buyButton = productInfo.querySelector('.price');
+
+products.forEach(product => {
+    const link = document.createElement('a');
+    link.href = '#';
+    link.textContent = product.name;
+    link.classList.add(`${product.name.toLowerCase()}-link`);
+
+    const listItem = document.createElement('li');
+    listItem.classList.add('list-item');
+    listItem.appendChild(link);
+
+    if (product.category === 'phones') {
+        phonesItem.appendChild(listItem);
+    } else if (product.category === 'laptops') {
+        laptopsItem.appendChild(listItem);
+    } else if (product.category === 'tablets') {
+        tabletsItem.appendChild(listItem);
+    }
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        updateInfo(product.name, product.category, product.text, product.price);
+    });
+});
+function updateInfo(name, category, text, buy) {
+    nameInfo.textContent = name;
+    categoryInfo.textContent = `Категорія: ${category}`;
+    textInfo.textContent = text;
+    buyButton.textContent = `Купити`;
+    productInfo.style.display = 'block';
 }
 
-function fetchWeather() {
-    const weatherLink = "http://api.openweathermap.org/data/2.5/weather?q=Dnipro&units=metric&APPID=5d066958a60d315387d9492393935c19";
+const categoryLinks = document.querySelectorAll('.nav__list-item a');
+categoryLinks.forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        resetProduct();
+    });
+});
+buyButton.addEventListener('click', function() {
+    const productName = nameInfo.textContent;
+    alert(`Товар ${productName}, додано до кошика!`);
+    laptops.style.display = 'none';
+    phones.style.display = "none";
+    tablets.style.display = "none";
+    resetProduct();
+});
 
-    fetch(weatherLink)
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Запит не ОК');
-            }
-        })
-        .then(data => {
-            showData(data);
-        })
-        .catch(error => {
-            console.error('Проблема з fetch', error);
-        });
+function resetProduct() {
+    nameInfo.textContent = '';
+    categoryInfo.textContent = '';
+    textInfo.textContent = '';
+    buyButton.textContent = 'Купити';
+    productInfo.style.display = 'none';
 }
 
-fetchWeather();
 
 
-// const xhr = new XMLHttpRequest();
+const orderButton = document.querySelector(".orders__btn");
+const orderInfo = document.querySelector('.order__info');
+const toMainBtn = document.querySelector(".tomain__btn");
 
-// const weatherLink = "http://api.openweathermap.org/data/2.5/weather?q=Dnipro&units=metric&APPID=5d066958a60d315387d9492393935c19";
+orderButton.addEventListener('click', function() {
+   categoryNav.style.display = 'none';
+   orderInfo.style.display = 'block';
+   toMainBtn.style.display = "block";
+   resetProduct();
+});
 
-// xhr.open("GET", weatherLink, true);
-
-// xhr.onreadystatechange = function () {
-//     if (xhr.readyState === 4 && xhr.status === 200) {
-//         let data = JSON.parse(xhr.responseText);
-    
-//         let icon = data.weather[0].icon;
-
-//         let iconLink = `http://openweathermap.org/img/w/${icon}.png`;
-//         document.getElementById("icon").src = iconLink;
-
-//         let city = data.name;
-//         let temp = data.main.temp;
-//         let pressure = data.main.pressure;
-//         let description = data.weather[0].description;
-//         let humidity = data.main.humidity;
-//         let speed = data.wind.speed;
-//         let deg = data.wind.deg;
-
-//         document.getElementById("city").textContent = city;
-//         document.getElementById("temp").textContent = `Температура: ${temp}`;
-//         document.getElementById("pressure").textContent = `Тиск: ${pressure}`;
-//         document.getElementById("description").textContent = `Опис: ${description}`;
-//         document.getElementById("humidity").textContent = `Вологість: ${humidity}`;
-//         document.getElementById("speed").textContent = `Швидкість вітру: ${speed}`;
-//         document.getElementById("deg").textContent = `Напрям у градусах: ${deg}`;
-//     }
-// };
-// xhr.send();
-
+toMainBtn.addEventListener("click", function(){
+        categoryNav.style.display = 'block';
+        orderInfo.style.display = 'none';
+        toMainBtn.style.display = "none";
+} )

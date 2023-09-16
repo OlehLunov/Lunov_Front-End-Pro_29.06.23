@@ -9,18 +9,43 @@
     <title>Document</title>
 </head>
 <body>
-    <main>
-            <div class="container">
-                <img src="" alt="icon" id="icon" width="100px" height="100px">
-                <h1 id="city"></h1>
-                <p id="temp"></p>
-                <p id="pressure"></p>
-                <p id="description"></p>
-                <p id="humidity"></p>
-                <p id="speed"></p>
-                <p id="deg"></p>
+<main>
+    <section class="shop">
+        <button class="orders__btn">Мої замовлення</button>
+        <button  class="tomain__btn" style="display: none;">На головну</button>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__list-item">
+                    <a href="#" class="smart__link">Смартфони</a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="#" class="laptops__link">Ноутбуки</a>
+                </li>
+                <li class="nav__list-item">
+                    <a href="#" class="tablets__link">Планшети</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="products">
+            <div class="phones" style="display: none">
             </div>
-    </main>
+            <div class="laptops" style="display: none">
+            </div>
+            <div class="tablets" style="display: none">
+            </div>
+        </div>
+        <div class="product__info" style="display: none">
+            <h1 class="name"></h1>
+            <p class="category"></p>
+            <p class="text"></p>
+            <button class="price"></button>
+        </div>
+
+        <div class="order__info" style="display: none;">
+            <p>124</p>
+        </div>
+    </section>
+</main>
 <script src="js/main.js"></script>
 </body>
 </html>
