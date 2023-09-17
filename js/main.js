@@ -83,6 +83,19 @@ categoryLinks.forEach(link => {
 });
 buyButton.addEventListener('click', function() {
     const productName = nameInfo.textContent;
+    const orderTime = new Date().toLocaleString();
+    const priceToOrder = products.find(item => item.name.toUpperCase() === productName.toUpperCase());
+    const orderPriceAdd = priceToOrder ? priceToOrder.price : '';
+
+    const orderItem = document.createElement('li');
+    orderItem.textContent = `${orderTime} - Ціна: ${orderPriceAdd}`;
+    orderList.appendChild(orderItem);
+
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+    orders.push(orderItem.textContent);
+    localStorage.setItem('orders', JSON.stringify(orders));
+
+
     alert(`Товар ${productName}, додано до кошика!`);
     laptops.style.display = 'none';
     phones.style.display = "none";
@@ -98,16 +111,19 @@ function resetProduct() {
     productInfo.style.display = 'none';
 }
 
-
+// ----------------------------------------------------------------------------------------
 
 const orderButton = document.querySelector(".orders__btn");
-const orderInfo = document.querySelector('.order__info');
+const orderInfo = document.querySelector('.orders');
 const toMainBtn = document.querySelector(".tomain__btn");
+const productsCat = document.querySelector(".products");
+const orderList = document.querySelector(".order-list");
 
 orderButton.addEventListener('click', function() {
    categoryNav.style.display = 'none';
    orderInfo.style.display = 'block';
    toMainBtn.style.display = "block";
+   productsCat.style.display = "none";
    resetProduct();
 });
 
