@@ -91,11 +91,7 @@ buyButton.addEventListener('click', function() {
     orderItem.textContent = `${orderTime} - Ціна: ${orderPriceAdd}`;
     orderList.appendChild(orderItem);
 
-    const orders = JSON.parse(localStorage.getItem('orders')) || [];
-    orders.push(orderItem.textContent);
-    localStorage.setItem('orders', JSON.stringify(orders));
-
-
+    
     alert(`Товар ${productName}, додано до кошика!`);
     laptops.style.display = 'none';
     phones.style.display = "none";
@@ -119,7 +115,10 @@ const toMainBtn = document.querySelector(".tomain__btn");
 const productsCat = document.querySelector(".products");
 const orderList = document.querySelector(".order-list");
 
+
+
 orderButton.addEventListener('click', function() {
+    localStorage.removeItem('orders');
    categoryNav.style.display = 'none';
    orderInfo.style.display = 'block';
    toMainBtn.style.display = "block";
