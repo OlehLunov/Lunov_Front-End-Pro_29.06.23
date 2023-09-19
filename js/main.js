@@ -138,6 +138,7 @@ function showOrders() {
             <div class="order-header">
                 <span class="order-date">Замовлення #${index + 1} - ${order.date}</span>
                 <button class="delete-order-btn" data-index="${index}">Видалити</button>
+                <button class= "toMain__btn">На головну</button>
             </div>
             <div class="order-details" style="display: none;">
                 <p>Ціна: ${order.price} грн</p>
@@ -156,6 +157,12 @@ function showOrders() {
                 details.style.display = 'none';
             }
         });
+
+        orderElement.querySelector('.toMain__btn').addEventListener('click', function(){
+            orderElement.style.display = 'none';
+            ordersBtn.style.display = 'block';
+            categoryNav.style.display = 'block';
+        })
         orderElement.querySelector('.delete-order-btn').addEventListener('click', function() {
             const index = this.getAttribute('data-index');
             savedOrders.splice(index, 1);

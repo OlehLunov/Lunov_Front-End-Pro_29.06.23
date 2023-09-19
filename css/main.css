@@ -94,3 +94,10 @@ h1{
     position: absolute;
     left: 30px;
 }
+.orders{
+    padding-left: 50px;
+}
+
+.delete-order-btn{
+    margin-left: 15px;
+}
