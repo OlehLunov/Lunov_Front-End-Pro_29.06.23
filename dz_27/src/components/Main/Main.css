@@ -1,0 +1,10 @@
+.main__content{
+    width: 500px;
+    left: 18%;
+    top: 20%;
+    position: absolute;
+    text-align: center;
+    border: 2px solid black;
+    padding: 130px 70px;
+    border-radius: 10px;
+}
