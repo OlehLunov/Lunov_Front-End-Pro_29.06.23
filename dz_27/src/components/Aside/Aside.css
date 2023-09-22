@@ -1,0 +1,28 @@
+.side_list{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+    width: 70px;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    border-bottom:2px solid black;
+    border-radius: 10px;
+}
+
+.side__link{
+    border: 2px solid black;
+    padding: 5px 5px ;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+}
+
+.side__link:hover{
+    color: aliceblue;
+    background-color: black;
+}
