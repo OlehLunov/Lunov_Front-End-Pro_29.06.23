@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
+import './Main.css'
 
 function Main() {
   const [clickCounts, setClickCounts] = useState({
     smiley1: 0,
     smiley2: 0,
     smiley3: 0,
+    smiley4: 0,
+    smiley5: 0,
   });
 
   const smileys = {
     smiley1: '😊',
     smiley2: '😄',
     smiley3: '😁',
+    smiley4: '😇',
+    smiley5: '💩',
   };
 
   const smileyClick = (smiley) => {
@@ -31,8 +36,8 @@ function Main() {
   };
   const showResults = () => {
     const winning = winningSmiley();
-    alert(`Переміг смайлик: ${winning}`);
-  };
+        alert(`Переміг смайлик: ${winning}`);
+    };
 
   return (
     <div>
