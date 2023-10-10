@@ -3,52 +3,52 @@ import './Main.css'
 
 function Main() {
   const [clickCounts, setClickCounts] = useState({
-    smiley1: 0,
-    smiley2: 0,
-    smiley3: 0,
-    smiley4: 0,
-    smiley5: 0,
+    smile1: 0,
+    smile2: 0,
+    smile3: 0,
+    smile4: 0,
+    smile5: 0,
   });
 
   const smileys = {
-    smiley1: '😊',
-    smiley2: '😄',
-    smiley3: '😁',
-    smiley4: '😇',
-    smiley5: '💩',
+    smile1: '😊',
+    smile2: '😄',
+    smile3: '😁',
+    smile4: '😇',
+    smile5: '💩',
   };
 
-  const smileyClick = (smiley) => {
+  const smileClick = (smile) => {
 
     setClickCounts((prevState) => ({
       ...prevState,
-      [smiley]: prevState[smiley] + 1,
+      [smile]: prevState[smile] + 1,
     }));
   };
 
-  const winningSmiley = () => {
+  const winningSmile = () => {
     const maxClicks = Math.max(...Object.values(clickCounts));
-    const winningSmileyKey = Object.keys(clickCounts).find(
-      (smiley) => clickCounts[smiley] === maxClicks
+    const winningSmileKey = Object.keys(clickCounts).find(
+      (smile) => clickCounts[smile] === maxClicks
     );
-    const winningSmiley = smileys[winningSmileyKey];
-    return winningSmiley;
+    const winningSmile = smileys[winningSmileKey];
+    return winningSmile;
   };
   const showResults = () => {
-    const winning = winningSmiley();
+    const winning = winningSmile();
         alert(`Переміг смайлик: ${winning}`);
     };
 
   return (
     <div>
       <h1>Список смайликів</h1>
-      {Object.entries(clickCounts).map(([smiley, count]) => (
-        <div key={smiley}>
-          <button onClick={() =>smileyClick(smiley)}>{smileys[smiley]}</button>
+      {Object.entries(clickCounts).map(([smile, count]) => (
+        <div className='smiles' key={smile}>
+          <button  className='smile__btn' onClick={() =>smileClick(smile)}>{smileys[smile]}</button>
           <span>Кількість кліків: {count}</span>
         </div>
       ))}
-      <button onClick={showResults}>Show Results</button>
+      <button className='show' onClick={showResults}>Show Results</button>
     </div>
   );
 }
