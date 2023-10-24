@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Form from './Form';
+import './ListStyle.css';
 
 function MainList() {
   const [contacts, setContacts] = useState([]);
@@ -25,7 +26,7 @@ function MainList() {
   };
 
   return (
-    <div>
+    <div className="main-container">
       <h1>Список контактів</h1>
       <table>
         <thead>

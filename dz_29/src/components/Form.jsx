@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './FormStyle.css';
 
 function Form({ setShowForm, setContacts }) {
   const [newContact, setNewContact] = useState({ firstName: '', lastName: '', phone: '' });
@@ -11,7 +12,7 @@ function Form({ setShowForm, setContacts }) {
   };
 
   return (
-    <div>
+    <div className="form-container">
       <h2>Форма контакту</h2>
       <input
         type="text"
