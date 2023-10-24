@@ -1,0 +1,18 @@
+div{
+width: 600px;
+text-align: center;
+}
+
+.smiles{
+    margin-bottom: 30px;
+}
+.smile__btn{
+    cursor: pointer;
+}
+span{
+    margin-left: 15px;
+}
+
+.show{
+    cursor: pointer;
+}
