@@ -18,13 +18,6 @@ function MainList() {
     setContacts(updatedContacts);
   };
 
-  const saveContact = () => {
-    const updatedContact = { ...newContact, name: newContact.firstName, username: newContact.lastName };
-    setContacts(prevContacts => [...prevContacts, updatedContact]);
-    setShowForm(false);
-    setNewContact({ firstName: '', lastName: '', phone: '' });
-  };
-
   return (
     <div className="main-container">
       <h1>Список контактів</h1>
