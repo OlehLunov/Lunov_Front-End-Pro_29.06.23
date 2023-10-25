@@ -1,55 +1,77 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import './Main.css';
 
 function Main() {
-   
-const [tasks, setTasks] = useState([
-    {id: 1, title: 'Learn React', complete: false},
-    {id: 2, title: 'Learn React', complete: false},
-    {id: 3, title: 'Learn React', complete: false},
-])
- 
-const[input, setInput] = useState ('')
+  const [tasks, setTasks] = useState([]);
+  const [input, setInput] = useState('');
 
-
-   function todoCompleted (id){
-        setTasks(tasks.filter(task => {
-            if (task.id === id) {
-                task.complete =  !task.complete;
-            }
-            return task;
-        }))
-   }
-
-   function removeTask(id){
-        setTasks(tasks.filter(task => task.id !== id))
-   }
-   
-function addTask (e) {
-    if (e.code === 'Enter' && input.trim() !== ""){
-        setTasks(tasks.concat([{id: Date.now(), title: input}]));
-        setInput("");
+  useEffect(() => {
+    const savedTasks = localStorage.getItem('tasks');
+    if (savedTasks) {
+      setTasks(JSON.parse(savedTasks));
     }
-}
-   return (
+  }, []);
+
+  function saveToLocalStorage(tasks) {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  };
+
+  function todoCompleted(id) {
+    const updatedTasks = tasks.map(task => {
+      if (task.id === id) {
+        const updatedTask = { ...task, complete: !task.complete };
+        return updatedTask;
+      }
+      return task;
+    });
+
+    setTasks(updatedTasks);
+    saveToLocalStorage(updatedTasks);
+  };
+
+  function removeTask(id) {
+    const updatedTasks = tasks.filter(task => task.id !== id);
+    setTasks(updatedTasks);
+    saveToLocalStorage(updatedTasks);
+  }
+
+  function addTask() {
+    if (input.trim() !== '') {
+      const newTask = { id: Date.now(), title: input, complete: false };
+      const updatedTasks = tasks.concat(newTask);
+      setTasks(updatedTasks);
+      setInput('');
+
+      saveToLocalStorage(updatedTasks);
+    }
+  }
+
+  function InputChange(e) {
+    setInput(e.target.value);
+  }
+
+  return (
+    <div>
+      <h1>TODO APP</h1>
+      <div className="input-container">
+        <input value={input} type="text" onChange={InputChange} />
+        <button onClick={addTask}>Додати</button>
+      </div>
       <div>
-       <h1>TODO APP</h1>
-       <input value = {input} type="text" onKeyUpCapture={(e) => addTask(e)} onChange={(e) => setInput(e.target.value)}/>
-       <div>
-            {tasks && tasks.map(task => {
-                return (
-            <div className='taskStyle' key = {task.id}>
-                <input type="checkbox"  onClick={() => todoCompleted(task.id)}/>
-                <div className='taskName'>{task.title}</div>
-                <div
-                onClick={( )=> removeTask(task.id)} 
+        {tasks && tasks.map(task => {
+          return (
+            <div className='taskStyle' key={task.id}>
+              <input type="checkbox" checked={task.complete} onChange={() => todoCompleted(task.id)} />
+              <div className='taskName'>{task.title}</div>
+              <div
+                onClick={() => removeTask(task.id)}
                 className='close'>&times;</div>
             </div>
-                );
-            })}
-       </div>
+          );
+        })}
       </div>
-    );
-  }
-  
-  export default Main;
+    </div>
+  );
+}
+
+export default Main;
