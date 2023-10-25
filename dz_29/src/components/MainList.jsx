@@ -34,7 +34,7 @@ function MainList() {
             <th>Ім'я</th>
             <th>Прізвище</th>
             <th>Телефон</th>
-            <th>Дії</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -58,7 +58,7 @@ function MainList() {
         </tbody>
       </table>
 
-      <button onClick={() => setShowForm(true)}>Додати контакт</button>
+      <button  className="add__btn"onClick={() => setShowForm(true)}>Додати контакт</button>
 
       {showForm && <Form setShowForm={setShowForm} setContacts={setContacts} />}
     </div>
