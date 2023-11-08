@@ -12,15 +12,15 @@ const validate = (values) => {
   }
 
   if (!values.email) {
-    errors.email = 'Поле обов\'язковий для заповнення';
+    errors.email = 'Поле обов\'язкове для заповнення';
   } else if (!/^\S+@\S+\.\S+$/.test(values.email)) {
     errors.email = 'Невірний формат email';
   }
 
   if (!values.phone) {
-    errors.phone = 'Телефон обов\'язковий для заповнення';
+    errors.phone = 'Поле обов\'язкове для заповнення';
   } else if (!/^\d{12}$/.test(values.phone)) {
-    errors.phone = 'Номерповинен містити 12 цифр';
+    errors.phone = 'Номер повинен містити 12 цифр';
   }
 
   return errors;
@@ -60,6 +60,8 @@ const Main = () => {
             />
             <ErrorMessage name="phone" component="div" />
       </div>
+
+        <button type="submit">Відправити</button>
       </Form>
     </Formik>
   );
