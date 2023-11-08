@@ -20,7 +20,7 @@ const validate = (values) => {
   if (!values.phone) {
     errors.phone = 'Телефон обов\'язковий для заповнення';
   } else if (!/^\d{12}$/.test(values.phone)) {
-    errors.phone = 'Номер телефону повинен містити 12 цифр';
+    errors.phone = 'Номерповинен містити 12 цифр';
   }
 
   return errors;
@@ -60,8 +60,6 @@ const Main = () => {
             />
             <ErrorMessage name="phone" component="div" />
       </div>
-
-        <button type="submit">Відправити</button>
       </Form>
     </Formik>
   );
