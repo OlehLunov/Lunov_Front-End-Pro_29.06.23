@@ -1,17 +1,18 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import "./Form.css"
 
 const validate = (values) => {
   const errors = {};
 
   if (!values.name) {
-    errors.name = 'Ім\'я обов\'язкове для заповнення';
+    errors.name = 'Поле обов\'язкове для заповнення';
   } else if (/\d/.test(values.name)) {
     errors.name = 'Ім\'я не повинно містити цифри';
   }
 
   if (!values.email) {
-    errors.email = 'Email обов\'язковий для заповнення';
+    errors.email = 'Поле обов\'язковий для заповнення';
   } else if (!/^\S+@\S+\.\S+$/.test(values.email)) {
     errors.email = 'Невірний формат email';
   }
@@ -19,7 +20,7 @@ const validate = (values) => {
   if (!values.phone) {
     errors.phone = 'Телефон обов\'язковий для заповнення';
   } else if (!/^\d{12}$/.test(values.phone)) {
-    errors.phone = 'Телефон повинен містити 12 цифр';
+    errors.phone = 'Номер телефону повинен містити 12 цифр';
   }
 
   return errors;
@@ -35,7 +36,7 @@ const Main = () => {
         actions.setSubmitting(false);
       }}
     >
-      <Form>
+      <Form className='mainForm'>
         <div>
           <label>Ім'я</label>
           <Field type="text" name="name" />
@@ -44,15 +45,21 @@ const Main = () => {
 
         <div>
           <label>Email</label>
-          <Field type="text" name="email" />
+          <Field type="email" name="email" />
           <ErrorMessage name="email" component="div" />
         </div>
 
         <div>
-          <label>Телефон</label>
-          <Field type="text" name="phone" />
-          <ErrorMessage name="phone" component="div" />
-        </div>
+            <label>Телефон</label>
+            <Field
+              type="tel" 
+              name="phone"
+              onInput={(e) => {
+                e.target.value = e.target.value.replace(/[^0-9]/g, ''); 
+              }}
+            />
+            <ErrorMessage name="phone" component="div" />
+      </div>
 
         <button type="submit">Відправити</button>
       </Form>

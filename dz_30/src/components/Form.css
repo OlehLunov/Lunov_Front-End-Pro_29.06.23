@@ -1,0 +1,13 @@
+.mainForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    height: 100vh;
+    text-align: center;
+}
+
+label{
+    margin-right: 30px;
+}
