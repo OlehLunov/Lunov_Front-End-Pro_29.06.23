@@ -1,20 +1,14 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import "./App.css"
-import store from './redux/store';
-import TodoList from './components/TodoList';
-import AddTodo from './components/AddTodo';
-
-function App() {
+import AddTodo from './components/AddTodo'; 
+import TodoList from './components/TodoList'; 
+const App = () => {
   return (
-    <Provider store={store}>
-      <div>
-        <h1>Todo List</h1>
-        <AddTodo />
-        <TodoList />
-      </div>
-    </Provider>
+    <div>
+      <h1>Todo App</h1>
+      <AddTodo />
+      <TodoList />
+    </div>
   );
-}
+};
 
 export default App;
