@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import UsersList from './components/UsersList';
+import UsersList from './components/UsersList/UsersList';
 import Albums from './components/Albums';
 import Photos from './components/Photos';
 

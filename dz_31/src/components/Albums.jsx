@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Albums = () => {
   const { userId } = useParams();
@@ -19,7 +20,9 @@ const Albums = () => {
         {albums.map(album => (
           <li key={album.id}>
             {album.title}
-            <button onClick={() => window.location.href = `/album/${album.id}/photos`}>Photos</button>
+            <Link to={`/album/${album.id}/photos`}>
+              <button>Photos</button>
+            </Link>
           </li>
         ))}
       </ul>

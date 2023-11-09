@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./UsersList.css"
+import { Link } from 'react-router-dom';
 
 const UsersList = () => {
   const [users, setUsers] = useState([]);
@@ -18,7 +19,9 @@ const UsersList = () => {
         {users.map(user => (
           <li  className='usersList' key={user.id}>
             {user.name}
-            <button  className='userBtn' onClick={() => window.location.href = `/user/${user.id}/albums`}>Album</button>
+              <Link to={`/user/${user.id}/albums`}>
+                <button className='userBtn'>Albums</button>
+              </Link>
           </li>
         ))}
       </ul>
