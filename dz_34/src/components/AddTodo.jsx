@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../redux/actions';
-// import "./AddTodo.css";
+ import "./AddTodo.css";
 
 const AddTodo = ({ addTodo }) => {
   const [text, setText] = useState('');
