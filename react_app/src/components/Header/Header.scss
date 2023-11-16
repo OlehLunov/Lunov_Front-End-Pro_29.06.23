@@ -1,4 +1,55 @@
 .App-header{
     display: flex;
     justify-content: space-between;
+    height: 100px;
+    background-color: #FF7F50;
+    align-items: center;
+    border-bottom: 2px black solid;
+}
+
+.logo{
+    padding-left: 50px;
+    cursor: pointer;
+}
+
+.links{
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn{
+    padding-right: 50px;
+    gap: 40px;
+    display: flex;
+
+    &_log{
+        width: 150px;
+        min-height: 35px;
+        cursor: pointer;
+        color: aliceblue;
+        background-color: transparent;
+        border: 1px solid black;
+        border-radius: 10px;
+
+        &:hover{
+            background-color: transparent;
+            border: 2px solid black;
+        }
+    }
+
+    &_reg{
+        width: 150px;
+        min-height: 35px;
+        cursor: pointer;
+        color: aliceblue;
+        background-color: black;
+        border: 1px solid transparent;
+        border-radius: 10px;
+
+        &:hover{
+            background-color: transparent;
+            border: 2px solid black;
+        }
+    }
 }
